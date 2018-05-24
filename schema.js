@@ -6,7 +6,6 @@ import sumBy from 'lodash/sumBy'
 
 import {
   GraphQLInt,
-  GraphQLBoolean,
   GraphQLString,
   GraphQLList,
   GraphQLObjectType,
@@ -43,7 +42,7 @@ const SkillsType = new GraphQLObjectType({
     type: {type: new GraphQLNonNull(GraphQLString)},
     user: {
       type: UserType,
-      resolve: (skill, args) => {
+      resolve: (skill) => {
         return find(Users, user => user.id === skill.userId)
       }
     }
